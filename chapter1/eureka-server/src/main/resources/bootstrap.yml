@@ -1,0 +1,19 @@
+server:
+  port: 7071
+eureka:
+  instance:
+    prefer-ip-address: true
+  server:
+    # 关闭保护模式
+    enable-self-preservation: false
+    # 清理间隔（单位毫秒，默认是60*1000）
+    eviction-interval-timer-in-ms: 60000
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      # 默认注册地址 this.serviceUrl.put("defaultZone", "http://localhost:8761/eureka/");
+      defaultZone: http://localhost:${server.port}/eureka/
+spring:
+  application:
+    name: eureka-server
