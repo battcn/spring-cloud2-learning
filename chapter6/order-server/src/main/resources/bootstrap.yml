@@ -1,0 +1,29 @@
+server:
+  port: 7072
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: order-server
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7071/eureka/
+spring:
+  application:
+    name: order-server
+
+# 开启Feign Hystrix 支持 不知道为什么，F版本还不弄个 Properties 提示
+feign:
+  hystrix:
+    enabled: true
+# hystrix endpoint ：http://localhost:7072/actuator/hystrix.stream
+management:
+  endpoint:
+    hystrix:
+      stream:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        # 如果嫌麻烦，可以一次性加载所有的
+        # include: '*'
+        include: 'hystrix.stream'
