@@ -12,6 +12,7 @@ F版刚出来那会，由于事情较多就没有好好研究，期间有不少�
 
 # 推荐开源项目
 
+- GitHub：[https://github.com/battcn/spring-boot2-learning](https://github.com/battcn/spring-boot2-learning "https://github.com/battcn/spring-boot2-learning")
 - GitHub：[https://github.com/battcn/swagger-spring-boot](https://github.com/battcn/swagger-spring-boot "https://github.com/battcn/swagger-spring-boot")
 - 码云：[https://gitee.com/battcn/spring-boot-starter-swagger/](https://gitee.com/battcn/spring-boot-starter-swagger/ "https://gitee.com/battcn/spring-boot-starter-swagger/")
 - 码云：[https://gitee.com/battcn/battcn3.0](https://gitee.com/battcn/battcn3.0 "https://gitee.com/battcn/battcn3.0")
