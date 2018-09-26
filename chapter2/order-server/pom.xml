@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.battcn</groupId>
-    <artifactId>ribbon-product</artifactId>
+    <artifactId>order-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <parent>
@@ -43,6 +43,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
 
 
     <build>

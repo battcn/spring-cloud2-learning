@@ -26,19 +26,23 @@ import java.util.List;
 public class OrderApplication {
 
 
+    @Configuration
+    class MyConfiguration {
+        @LoadBalanced
+        @Bean
+        RestTemplate restTemplate() {
+            return new RestTemplate();
+        }
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(OrderApplication.class, args);
     }
 
-
-    private final RestTemplate restTemplate;
-    private final DiscoveryClient discoveryClient;
-
     @Autowired
-    public OrderApplication(RestTemplate restTemplate, DiscoveryClient discoveryClient) {
-        this.restTemplate = restTemplate;
-        this.discoveryClient = discoveryClient;
-    }
+    private RestTemplate restTemplate;
+    @Autowired
+    private DiscoveryClient discoveryClient;
 
 
     @GetMapping("/orders")
@@ -50,16 +54,8 @@ public class OrderApplication {
                 System.out.println(aList.getUri() + "/" + service + " - " + aList.getServiceId());
             }
         }
-        return restTemplate.getForObject("http://RIBBON-PRODUCT/products/1", String.class);
+        return restTemplate.getForObject("http://PRODUCT-SERVER/products/1", String.class);
     }
 
-    @Configuration
-    class MyConfiguration {
-        @LoadBalanced
-        @Bean
-        RestTemplate restTemplate() {
-            return new RestTemplate();
-        }
-    }
 
 }

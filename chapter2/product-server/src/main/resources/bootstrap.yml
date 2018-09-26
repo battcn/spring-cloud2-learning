@@ -1,11 +1,12 @@
 server:
-  port: 7072
+  port: 7073
 eureka:
   instance:
     prefer-ip-address: true
+    instance-id: ribbon-product
   client:
     serviceUrl:
       defaultZone: http://localhost:7071/eureka/
 spring:
   application:
-    name: ribbon-order
+    name: product-server
