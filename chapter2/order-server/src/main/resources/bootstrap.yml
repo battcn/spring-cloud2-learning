@@ -7,3 +7,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:7071/eureka/
+spring:
+  application:
+    name: order-server
