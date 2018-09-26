@@ -3,10 +3,7 @@ server:
 eureka:
   instance:
     prefer-ip-address: true
-    instance-id: ribbon-product
+    instance-id: product-server
   client:
     serviceUrl:
       defaultZone: http://localhost:7071/eureka/
-spring:
-  application:
-    name: product-server
