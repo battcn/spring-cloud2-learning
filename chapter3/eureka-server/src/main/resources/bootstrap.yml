@@ -1,0 +1,23 @@
+server:
+  port: 7071
+eureka:
+  instance:
+    prefer-ip-address: true
+  server:
+    # 关闭保护模式
+    enable-self-preservation: false
+    # 清理间隔（默认是60 * 1000 毫秒）
+    eviction-interval-timer-in-ms: 60000
+    # Eureka 拉取服务列表时间（默认：30秒）
+    remote-region-registry-fetch-interval: 5
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      # 默认注册地址 this.serviceUrl.put("defaultZone", "http://localhost:8761/eureka/");
+      defaultZone: http://localhost:${server.port}/eureka/
+      # 从 Eureka 服务器端获取注册信息的间隔时间（默认：30秒）
+    registry-fetch-interval-seconds: 5
+spring:
+  application:
+    name: eureka-server
