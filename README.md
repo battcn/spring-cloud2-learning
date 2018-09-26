@@ -25,4 +25,4 @@ F版刚出来那会，由于事情较多就没有好好研究，期间有不少�
 - **chapter3：** [一起来学Spring Cloud | 第三篇：注解式HTTP请求Feign（上）](http://blog.battcn.com/)
 - **chapter4：** [一起来学Spring Cloud | 第四篇：Feign拦截器应用](http://blog.battcn.com/)
 - **chapter5：** [一起来学Spring Cloud | 第五篇：Hystrix 与 Ribbon](http://blog.battcn.com/)
-- **chapter5：** [一起来学Spring Cloud | 第五篇：Hystrix 与 Feign](http://blog.battcn.com/)
+- **chapter6：** [一起来学Spring Cloud | 第六篇：Hystrix 与 Feign](http://blog.battcn.com/)
