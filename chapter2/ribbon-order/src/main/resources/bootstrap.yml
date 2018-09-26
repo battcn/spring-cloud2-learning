@@ -1,0 +1,11 @@
+server:
+  port: 7072
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7071/eureka/
+spring:
+  application:
+    name: ribbon-order
