@@ -1,0 +1,23 @@
+server:
+  port: 7073
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: gateway-server
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7071/eureka/
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        #网关路由到订单服务order-service
+      - id: order-server
+        uri: lb://order-server
+        predicates:
+          - Path=/order-server/**

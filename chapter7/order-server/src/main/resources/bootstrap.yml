@@ -1,0 +1,12 @@
+server:
+  port: 7072
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: order-server
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7071/eureka/
+spring:
+  application:
+    name: order-server
