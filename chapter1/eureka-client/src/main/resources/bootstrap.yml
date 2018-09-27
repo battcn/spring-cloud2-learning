@@ -18,7 +18,7 @@ eureka:
     prefer-ip-address: true
     # 优先级小于 application.properties ，如果你想知道当前注册上去的版本必须使用 application.properties 中的配置写法
     # 因为 bootstrap.yml 最早初始化，那时候还无法读取到 pom.xml 中的属性
-    instance-id: ${spring.application.name}
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
     # ip-address 强行指定此实例 IP ，不是很推荐，绝大多数情况 prefer-ip-address 与  preferred-networks 配合都够用了
   client:
     service-url:
