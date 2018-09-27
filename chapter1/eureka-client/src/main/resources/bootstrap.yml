@@ -7,7 +7,11 @@ spring:
   cloud:
     inetutils:
       # 忽略指定网卡（支持正则），假设你的电脑有 VM 那么该选项是非常有用的一个选项
-      preferred-networks: eth0
+      ignored-interfaces:             #忽略 docker0 网卡以及 veth 开头的网卡
+        - docker0
+        - veth.*
+      preferred-networks:             # 使用指定网络地址，选择 eth0 网卡，当然也可以直接写 IP （192.168）
+        - eth0
 eureka:
   instance:
     # 此处建议写，不写默认是机器名
