@@ -1,11 +1,22 @@
 server:
   port: 7072
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:7071/eureka/
+# 如果不写 Eureka Server 中的界面中 Application 就会是 Unknown 尽量写
 spring:
   application:
     name: eureka-client
+  cloud:
+    inetutils:
+      # 忽略指定网卡（支持正则），假设你的电脑有 VM 那么该选项是非常有用的一个选项
+      preferred-networks: eth0
+eureka:
+  instance:
+    # 此处建议写，不写默认是机器名
+    prefer-ip-address: true
+    # 优先级小于 application.properties ，如果你想知道当前注册上去的版本必须使用 application.properties 中的配置写法
+    # 因为 bootstrap.yml 最早初始化，那时候还无法读取到 pom.xml 中的属性
+    instance-id: ${spring.application.name}
+    # ip-address 强行指定此实例 IP ，不是很推荐，绝大多数情况 prefer-ip-address 与  preferred-networks 配合都够用了
+  client:
+    service-url:
+      # 划重点：此处的 defaultZone 千万别写成 default-zone
+      defaultZone: http://localhost:7071/eureka/
