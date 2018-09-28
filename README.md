@@ -20,7 +20,7 @@ F版刚出来那会，由于事情较多就没有好好研究，期间有不少�
 
 # 目录介绍
 
-- **chapter1：** [一起来学Spring Cloud | 第一篇：认识Eureka](http://blog.battcn.com/)
+- **chapter1：** [一起来学Spring Cloud | 第一篇：认识Eureka](http://blog.battcn.com/2018/09/27/springcloud/finchley/finchley-learn-eureka/)
 - **chapter2：** [一起来学Spring Cloud | 第二篇：Ribbon软负载](http://blog.battcn.com/)
 - **chapter3：** [一起来学Spring Cloud | 第三篇：注解式HTTP请求Feign](http://blog.battcn.com/)
 - **chapter4：** [一起来学Spring Cloud | 第四篇：Feign拦截器应用](http://blog.battcn.com/)
