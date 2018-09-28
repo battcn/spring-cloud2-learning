@@ -1,9 +1,9 @@
 package com.battcn;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author Levin
  */
-@EnableEurekaClient
 @RestController
 @EnableDiscoveryClient
 @SpringBootApplication
@@ -21,8 +20,11 @@ public class ProductApplication {
         SpringApplication.run(ProductApplication.class, args);
     }
 
-    @GetMapping("/products/{id}")
-    public String query(@PathVariable Long id) {
-        return id + "：Spring Boot...";
+    @Value("${server.port}")
+    private int port;
+
+    @GetMapping("/products")
+    public String query() {
+        return "port : " + port;
     }
 }

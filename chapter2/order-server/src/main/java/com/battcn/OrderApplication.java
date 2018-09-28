@@ -1,36 +1,27 @@
 package com.battcn;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.List;
 
 /**
  * @author Levin
  */
-@RestController
-@EnableEurekaClient
 @EnableDiscoveryClient
 @SpringBootApplication
 public class OrderApplication {
 
-
     @Configuration
     class MyConfiguration {
+
         @LoadBalanced
         @Bean
         RestTemplate restTemplate() {
+            // 默认 RestTemplate 是无负载功能的，所以我们需要重新定义 RestTemplate 申请成 @LoadBalanced（默认情况是轮训）
             return new RestTemplate();
         }
     }
@@ -38,24 +29,4 @@ public class OrderApplication {
     public static void main(String[] args) {
         SpringApplication.run(OrderApplication.class, args);
     }
-
-    @Autowired
-    private RestTemplate restTemplate;
-    @Autowired
-    private DiscoveryClient discoveryClient;
-
-
-    @GetMapping("/orders")
-    public String query() {
-        final List<String> services = discoveryClient.getServices();
-        for (String service : services) {
-            List<ServiceInstance> list = discoveryClient.getInstances(service);
-            for (ServiceInstance aList : list) {
-                System.out.println(aList.getUri() + "/" + service + " - " + aList.getServiceId());
-            }
-        }
-        return restTemplate.getForObject("http://PRODUCT-SERVER/products/1", String.class);
-    }
-
-
 }
