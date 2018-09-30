@@ -1,6 +1,6 @@
 package com.battcn.controller;
 
-import com.battcn.api.ProductApi;
+import com.battcn.api.ProductClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,13 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController {
 
     @Autowired
-    private ProductApi productApi;
+    private ProductClient productClient;
 
 
     @GetMapping
     public String query() {
-        return this.productApi.selectProductById(10L);
+        return this.productClient.selectProductById(10L);
     }
-
-
 }
