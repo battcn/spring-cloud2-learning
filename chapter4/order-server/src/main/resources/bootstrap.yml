@@ -10,3 +10,20 @@ eureka:
 spring:
   application:
     name: order-server
+#如果需要在RequestInterceptor中使用 ThreadLocal 需要设置线程隔离策略,SEMAPHORE 或在Feign中禁用Hystrix
+hystrix:
+  threadpool:
+    default:
+      coreSize: 100
+      maximumSize: 400
+      maxQueueSize: 10000
+  command:
+    default:
+      execution:
+        isolation:
+          # hystrix 有两种策略，分别是 SEMAPHORE、THREAD，默认 SEMAPHORE
+          # SEMAPHORE：信号量，意思就是当请求到达一定级别就开启拒绝策略，不在接收新的请求
+          # THREAD：线程隔离，每个请求进来分配给新的线程处理，这种方式在并发情况下请求速度会提高，但是会降低响应速度
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 600000
