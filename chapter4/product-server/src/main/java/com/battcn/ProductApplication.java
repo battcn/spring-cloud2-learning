@@ -23,7 +23,7 @@ public class ProductApplication {
     }
 
     @GetMapping("/products/{id}")
-    public String query(@PathVariable Long id, @RequestHeader String sessionId) {
-        return id + "：Spring Boot... sessionId = " + sessionId;
+    public String query(@PathVariable Long id, @RequestHeader String token) {
+        return id + "：Spring Boot... token = " + token;
     }
 }

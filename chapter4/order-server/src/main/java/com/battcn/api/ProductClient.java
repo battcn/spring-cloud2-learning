@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @since 2018/9/26 0026
  */
 @FeignClient(name = "product-server/products")
-public interface ProductApi {
+public interface ProductClient {
 
     /**
      * 根据产品ID查询产品信息
